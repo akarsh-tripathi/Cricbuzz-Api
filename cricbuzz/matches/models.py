@@ -9,8 +9,7 @@ class MatchTable(models.Model):
     match_date = models.CharField(max_length=100)
     venue = models.CharField(max_length=100)
     status = models.CharField(max_length=100)
-    def __str__(self):
-        return self.team1 + ' vs ' + self.team2
+
     
 class PlayersSquadTable(models.Model):
     id = models.AutoField(primary_key=True, unique=True)

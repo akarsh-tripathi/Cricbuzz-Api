@@ -22,6 +22,8 @@ def AddPlayer(request):
 
 
 @api_view(['POST'])
+@authentication_classes([SessionAuthentication, TokenAuthentication])
+@permission_classes([IsAuthenticated])
 def statsById(request, id):
     player = PlayersModel.objects.get(player_id = id)
     playerSerializer = PlayerSerializer(player)
