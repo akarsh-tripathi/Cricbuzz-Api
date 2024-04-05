@@ -33,10 +33,15 @@ def getMatchById(request, id):
     try:
         match = MatchTable.objects.get(match_id = id)
         matchSerializer = MatchSerializer(match)
-
+        # playerteam1 = PlayersSquadTable.objects.filter(team_name = matchSerializer.data['team1'])
+        # print(matchSerializer.data['team1'])
+        # print(matchSerializer.data['team2'])
+        # print(playerteam1.values())        
+        
+        # return Response({'match':matchSerializer.data}, status = 200)
         players_of_team1 = PlayersSquadTable.objects.filter(team_name =matchSerializer.data['team1'])
         players_of_team2 = PlayersSquadTable.objects.filter(team_name =matchSerializer.data['team2'])
-        return Response({'match':matchSerializer.data, 'squads':{'team1':players_of_team1,'team2':players_of_team2}}, status = 200)
+        return Response({'match':matchSerializer.data, 'squads':{'team1':players_of_team1.values(),'team2':players_of_team2.values()}}, status = 200)
     except:
         return Response({'message':'Match not found'}, status = 404)
     
