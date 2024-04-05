@@ -40,7 +40,7 @@ Guest Accessible EndPoints
 ![Fetch All Matches](screenshot/getAllMatches.png)
 
 - `GET /api/matches/{match_id}`: Provide details of specific match by ID and shows the players that are in the squad of the team
-![Fetch All Matches](screenshot/getAllMatches.png)
+![Fetch Match by ID & Squad](screenshot/getMatchById.png)
 
 
 #Admin Accessible Endpoints 
